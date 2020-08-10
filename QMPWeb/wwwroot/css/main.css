@@ -1,0 +1,331 @@
+/* COSAS GENERALES */
+    * {
+        box-sizing: border-box;
+        font-family: 'Raleway', sans-serif;
+    }
+
+    body, html{
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+        height: 100%;
+        width: 100%;
+    }
+
+    .fondo-main{
+        background: url('/media/fondo-ropa.png');
+        background-attachment: fixed;
+    }
+
+    #contenido{
+        padding: 0.5% 0;
+    }
+
+    .header{
+        height: 100vh;
+        align-items: center;
+        color: #fff;
+    }
+
+    .header-video{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .header-video video{
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .header-overlay{
+        height: 100vh;
+        width: 100vw;
+        position: absolute; 
+        background: rgba(0,0,0,0.6);
+        overflow-x: hidden;
+        padding: 1% 3%;
+    }
+
+    .error{
+        width: 100%;
+        height: 30px;
+        border: 1px rgb(250, 81, 81) solid;
+        border-radius: 25px;
+        background-color: rgb(233, 158, 158);
+        color: white;
+        text-align: center;
+        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.4);
+        margin-top: 1%;
+    }
+
+    .letra-20{
+        font-size: 20px;
+    }
+
+    .letra-50{
+        font-size: 60px;
+    }
+
+    .letra-con-sombra{
+        text-shadow: 1px 2px 3px rgba(92, 92, 92, 0.6);
+    }
+
+    .letra-blanca{
+        color: white;
+    }
+
+    .letra-de-titulo{
+        font-family: 'Courgette', cursive;
+    }
+
+    input::-webkit-input-placeholder{
+        font-size: 20px;
+        font-family: 'Courgette', cursive;
+    }
+
+    .form-control:focus{
+        box-shadow: none;
+        outline: 0px;
+    }
+
+    .fondo-sombreado{
+        background-color: rgba(0, 0, 0, 0.3);
+        padding-top: .3em;
+        border-radius: .5em;
+        width: 100%;
+    }
+
+    .bg-default{
+        background: linear-gradient(-45deg, rgb(236, 209, 84), rgb(236, 190, 225));
+    }
+
+    .bg-blured-black{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .black-card{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        transition: all .3s ease-in-out
+    }
+
+    .black-card .card-header{
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        border: none;
+        text-align: center;
+    }
+
+    #notLoginCard .card:hover{
+        transform: scale(1.07)
+    }
+
+    .box-shadow{
+        box-shadow: 0px 5px 10px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    .sign-out:hover{
+        color: rgb(248, 108, 108)!important;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9)!important;
+    }
+
+    .btn{
+        border-radius: 30px;
+        transition: all .28s ease-in;
+        text-shadow: 0 1px 4px rgba(255,255,255, 0.9);
+    }
+
+    .btn:hover{
+        box-shadow: none;
+        transform: scale(0.99)
+    }
+
+    .card .card-footer, .card-header{
+        border: none;
+        background-color: transparent;
+    }
+
+    .card .form-group input{
+        background-color: transparent;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        border-radius: 0%;
+    }
+
+    .card input.editable{
+        background-color: white;
+    }
+
+/* COSAS PARA LOS EVENTOS */
+    .simple-ls{
+        list-style: none;
+        margin-left: -2.3em;
+        line-height: 1.8em;
+    }
+
+    .simple-ls > li{
+        font-family: 'Courgette', cursive;
+        font-size: 1.1em;
+    }
+
+    .simple-ls > li > span{
+        font-family: 'Courgette', cursive;
+        text-decoration: underline;
+    }
+
+    .modal-header h1, input, label{
+        font-family: 'Courgette', cursive;
+    }
+
+    .modal-header, .modal-footer{
+        border: none;
+    }
+
+    .modal .form-group input{
+        background-color: transparent;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        border-radius: 0%;
+    }
+
+    .modal .btn{
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+/* COSAS PARA LA PRESENTACION */
+    .presentacion .card{
+        background-color: transparent;
+        border: none;
+    }
+
+/* COSAS PARA EL LOGIN */
+    #loginYdescripcion{
+        padding-top: 3%;
+    }
+
+    .letra-con-sombra-blanca{
+        text-shadow: 0 1px 5px rgba(255, 255, 255, 0.5);
+    }
+
+    .login .card{
+        background: linear-gradient(-45deg, rgba(236, 209, 84, 0.9), rgba(236, 190, 225, 0.9));
+        border: none;
+        color: black;
+    }
+
+    .login .card .btn{
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    }
+
+    #formLogin .card-header, #formCreacionCuenta .card-header{
+        border: none;
+        background: transparent;
+    }
+
+    #formLogin .card-footer, #formCreacionCuenta .card-footer{
+        border: none;
+        background: transparent;
+    }
+
+    #formLogin .input-group-text, #formCreacionCuenta .input-group-text{
+        background-color: transparent;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        border-radius: 0%;
+    }
+
+    #formLogin .form-control, #formCreacionCuenta .form-control{
+        background-color: transparent;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        border-radius: 0%;
+    }
+
+    #loginBtns .btn{
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+/* COSAS PARA EL SIDEBAR */
+
+    .nav-link{
+        transition: all .4s ease-in-out;
+        color: black;
+        text-shadow: 0 1px 4px rgba(255,255,255, 0.9);
+    }
+
+    .nav-link:hover{
+        color: white;
+        text-decoration: none;
+        text-shadow: 0 1px 4px rgb(0,0,0);
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 0;
+    }
+
+/* COSAS PARA EL INDEX */
+
+    .index-overlay{
+        height: 100%;
+    }
+
+    .info{
+        /* height: 70%; */
+        background: linear-gradient(to bottom, rgb(255, 195, 171), rgb(255,255,255));
+        /* background-color: #FFF9E6; */
+        /* padding-top: 12%; */
+    }
+
+    .imagen-de-icono{
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
+        left: 10%;
+        top: 10%;
+        position: relative;
+    }
+
+    #img-container{
+        width: 240px;
+        height: 240px;
+        border-radius: 150px;
+    }
+
+    #img-container:hover{
+        transform: scale(1.1);
+        filter: brightness(0.50);
+        transition: all .4s ease-in-out
+    }
+
+/* COSAS PARA EL SCROLLBAR */
+
+    body::-webkit-scrollbar {
+        width: 1.1em;     /* Tamaño del scroll en vertical */
+        background-color: grey;
+    }
+
+    /* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+    body::-webkit-scrollbar-thumb {
+        background: linear-gradient(to top, rgba(236, 209, 84, 0.9), rgba(236, 190, 225, 0.9));
+        border-radius: 20px;
+        height: .8em;
+    }
+
+/* COSAS PARA EL GUARDARROPA */
+
+    .icono-de-guardarropa{
+        width: 10em;
+        height: 10em;
+    }

@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "Prendas";
+}
+<!-- PAGE CONTENT -->
+    <div class="container-fluid">
+
+        <button onclick="cargarSelectsParaCreacionDePrenda(@ViewBag.Id)" class="btn bg-default box-shadow letra-20 letra-de-titulo mt-4" data-toggle="modal" data-target="#nuevaPrendaForm">
+            <i class="fas fa-plus"></i> Agregar nueva prenda
+        </button>
+
+        <div class="row">
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="container">
+                    <div class="col-lg-12 alert alert-success alert-dismissible fade show mt-4 text-center">
+                        <b> @TempData["SuccessMessage"] </b>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            }
+
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="container">
+                    <div class="col-lg-12 alert alert-danger alert-dismissible fade show mt-4 text-center">
+                        <b> @TempData["ErrorMessage"] </b>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            }
+
+            @if (Enumerable.Count(ViewBag.PrendasDelUsuario) > 0)
+            {
+                foreach (var prenda in ViewBag.PrendasDelUsuario)
+                {
+                    if (prenda.tipoPrenda > 60)
+                    {
+                        <div class="col-md-3 col-sm-6 col-lg-3 mt-4">
+                            <div class="card box-shadow black-card">
+                                <center><img src="~/uploads/@prenda.urlImagen" width="300" height="300" alt="foto-de-prenda"></center>
+                                <div class="card-footer">
+                                    <button type="button" onclick="agregarPrendaAUnGuardarropa(@prenda.id_prenda, @ViewBag.Id)" class="btn btn-block btn-light letra-de-titulo btn-sm mb-2" data-toggle="modal" data-target="#agregarPrendaAGuardarropa"><i class="fas fa-plus"></i> Agregar a un guardarropa</button>
+                                    @Html.ActionLink("Editar prenda", "CargarPrendaParaEditar", "Prendas", new { idPrenda = prenda.id_prenda, idUsuario = ViewBag.Id }, new { @class = "btn btn-primary btn-block btn-sm mb-2 letra-de-titulo" })
+                                    <form asp-controller="Prendas" asp-action="EliminarPrenda" method="POST">
+                                        <input type="hidden" name="idUsuario" value="@prenda.id_duenio">
+                                        <input type="hidden" name="idPrenda" value="@prenda.id_prenda">
+                                        <button type="submit" class="btn btn-danger btn-block btn-sm"><i class="far fa-trash-alt"></i> Eliminar prenda</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+            }
+            else
+            {
+                <div class="container-fluid">
+                    <div class="col-lg-12 alert alert-danger alert-dismissible fade show mt-4 text-center">
+                        <b> Todavía no tenes prendas cargadas :( </b>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+        <!-- FORMULARIO DE CREACION DE PRENDA -->
+        <div class="modal fade" id="nuevaPrendaForm" role="dialog" tabindex="-1" aria-labelledby="nuevaPrendaForm" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content bg-default">
+                    <form asp-controller="Prendas" asp-action="Create" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" value="@ViewBag.Id" name="idUsuario">
+                        <div class="modal-header">
+                            <h1 class="letra-blanca letra-con-sombra letra-de-titulo">Agrega una nueva prenda</h1>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>        
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Color principal</label>
+                                <input type="text" class="form-control" name="colorPrincipal" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Color secundario</label>
+                                <input type="text" class="form-control" name="colorSecundario" required>
+                            </div>
+                            <!-- LOS TRES SELECTs LOs RELLENO CON JQUERY -->
+                            <div class="form-group">
+                                <label>Tipo de prenda</label>
+                                <select class="custom-select" id="tiposDePrenda" name="tipoDePrenda" required>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tipo de tela</label>
+                                <select class="custom-select" id="tiposDeTela" name="tipoDeTela" required>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Guardarropas en el que lo queres guardar</label>
+                                <select class="custom-select" id="guardarropasDelUsuario" name="idGuardarropa" required> 
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Subí una imagen de la prenda</label>
+                                <input type="file" class="form-control-file" name="imagenDePrenda" multiple="false" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success btn-block mt-1"><i class="far fa-save"></i> Crear prenda</button>
+                            <button class="btn btn-danger m-2 btn-block" data-dismiss="modal"><i class="far fa-trash-alt"></i> Descartar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORMULARIO PARA AGREGAR UNA PRENDA A UN GUARDARROPA -->
+        <div class="modal fade" id="agregarPrendaAGuardarropa" role="dialog" tabindex="-1" aria-labelledby="agregarPrendaAUnGuardarropaForm" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content bg-default">
+                    <form asp-controller="Prendas" asp-action="AgregarPrendaAGuardarropa" method="POST">
+                        <div class="modal-header">
+                            <h1 class="letra-blanca letra-con-sombra letra-de-titulo">Agrega la prenda a un guardarropa!</h1>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>  
+                        </div>
+                        <div class="modal-body">
+                            <input type="hidden" id="idPrendaAgregacionPrenda" name="idPrenda" value="">
+                            <input type="hidden" id="idUsuarioAgregacionPrenda" name="idUsuario" value="">
+                            <div class="form-group">
+                                <label class="letra-de-titulo">Guardarropa</label>
+                                <select class="custom-select" id="guardarropasDelUsuarioParaPrenda" name="idGuardarropa"></select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-block btn-sm btn-success mt-2"><i class="fas fa-plus"></i>  Agregar al guardarropa</button>
+                            <button class="btn btn-sm btn-block btn-danger" data-dismiss="modal"><i class="fas fa-times"></i> Salir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>

@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Edicion de evento";
+}
+
+<div class="container-fluid">
+    <div class="row mt-4">
+        <div class="col-md-8 col-sm-12 mx-auto mt-4 mb-4">
+            <form asp-controller="Eventos" asp-action="ActualizarEvento" method="POST">
+                <input type="hidden" value="@ViewBag.Id" name="idUsuario">
+                <input type="hidden" value="@ViewBag.Evento.id_evento" name="idEvento">
+                <div class="card bg-default box-shadow pb-0">
+                    <div class="card-header text-center">
+                        <h1 class="letra-de-titulo letra-blanca letra-con-sombra">Edición de evento</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label><b>Descripción del evento:</b></label>
+                                    <input type="text" class="form-control editable" name="descripcionEvento" value="@ViewBag.Evento.descripcion">
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Fecha y hora de inicio de evento establecida:</b> </label>
+                                    <label>@ViewBag.Evento.fechaInicioPrendas</label>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Fecha y hora de inicio de evento nueva:</b></label>
+                                    <input type="datetime-local" class="form-control" name="fechaInicioNueva" value="">
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Fecha y hora de finalizacion de evento establecida:</b></label>
+                                    <label>@ViewBag.Evento.fechaFinPrendas</label>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Fecha y hora de fin del evento nueva:</b></label>
+                                    <input type="datetime-local" class="form-control" name="fechaFinNueva" value="">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label><b>Fecha y hora establecida para hacerte acordar del evento:</b></label>
+                                    <label>@ViewBag.Evento.fechaNotificacion</label>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>¿Querés renovar el recordatorio?:</b></label>
+                                    <select class="custom-select" name="recordatorioNuevo">
+                                        <option value="-">Seleccioná un nuevo momento</option>
+                                        <option value="1">1 hora antes</option>
+                                        <option value="24">1 dia antes</option>
+                                        <option value="168">1 semana antes</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Frecuencia actual del evento:</b></label>
+                                    <br>
+                                    <label>@ViewBag.TipoDeEvento</label>
+                                </div>
+                                <div class="form-group">
+                                    <label><b>Nueva frecuencia</b></label>
+                                    <select name="frecuenciaNueva" class="custom-select">
+                                        <option value="-">Seleccioná la frecuencia del evento</option>
+                                        <option value="0">Evento único</option>
+                                        <option value="1">Todos los dias</option>
+                                        <option value="2">Una vez por semana</option>
+                                        <option value="3">Una vez por mes</option>
+                                        <option value="4">Una vez por año</option>
+                                    </select>
+                                </div>                                
+                                <div class="form-group">
+                                    <label><b>Lugar:</b></label>
+                                    <input type="text" class="form-control editable" name="lugar" value="@ViewBag.Evento.lugar">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success btn-block mt-4"><i class="far fa-save"></i> Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

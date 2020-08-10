@@ -1,0 +1,14 @@
+﻿{
+    "Version": 1,
+    "Key": "7894",
+    "Type": "City",
+    "Rank": 20,
+    "LocalizedName": "Buenos Aires",
+    "EnglishName": "Buenos Aires",
+    "PrimaryPostalCode": "",
+    "Region": {
+        "ID": "SAM",
+        "LocalizedName": "South America",
+        "EnglishName": "South America"
+    }
+}

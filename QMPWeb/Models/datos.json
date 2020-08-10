@@ -1,0 +1,116 @@
+﻿{
+    "tipoDePrenda": [
+        {
+            "descripcion": "Sin Ropa en torso",
+            "categoria": "torso",
+            "tiposDeTelaPosibles": [ "" ],
+            "nivelDeAbrigo": 8,
+            "capa": 0
+        },
+        {
+            "descripcion": "Sin Ropa en torso",
+            "categoria": "torso",
+            "tiposDeTelaPosibles": [ "" ],
+            "nivelDeAbrigo": 8,
+            "capa": 2
+        },
+        {
+            "descripcion": "Sin Ropa en piernas",
+            "categoria": "piernas",
+            "tiposDeTelaPosibles": [ "" ],
+            "nivelDeAbrigo": 8,
+            "capa": 0
+        },
+        {
+            "descripcion": "Sin Ropa en piernas",
+            "categoria": "piernas",
+            "tiposDeTelaPosibles": [ "" ],
+            "nivelDeAbrigo": 8,
+            "capa": 2
+        },
+        {
+            "descripcion": "Sin accesorio",
+            "categoria": "accesorio",
+            "tiposDeTelaPosibles": [ "" ],
+            "nivelDeAbrigo": 8,
+            "capa": 0
+        },
+        {
+            "descripcion": "remera de manga corta",
+            "categoria": "torso",
+            "tiposDeTelaPosibles": [ "algodon", "lana" ],
+            "nivelDeAbrigo": 8,
+            "capa": 1
+        },
+        {
+            "descripcion": "remera de manga corta",
+            "categoria": "torso",
+            "tiposDeTelaPosibles": [ "algodon", "lana" ],
+            "nivelDeAbrigo": 18,
+            "capa": 1
+        },
+        {
+            "descripcion": "musculosa",
+            "categoria": "torso",
+            "tiposDeTelaPosibles": [ "algodon", "lana" ],
+            "nivelDeAbrigo": 8,
+            "capa": 0
+        },
+        {
+            "descripcion": "camiseta de abrigo",
+            "categoria": "torso",
+            "tiposDeTelaPosibles": [ "algodon", "lana" ],
+            "nivelDeAbrigo": 35,
+            "capa": 0
+        },
+        {
+            "descripcion": "campera Abrigada",
+            "categoria": "torso",
+            "tiposDeTelaPosibles": [ "algodon", "lana" ],
+            "nivelDeAbrigo": 200,
+            "capa": 2
+        },
+        {
+            "descripcion": "short",
+            "categoria": "piernas",
+            "tiposDeTelaPosibles": [ "cuero", "jean", "corderoy" ],
+            "nivelDeAbrigo": 8,
+            "capa": 1
+        },
+        {
+            "descripcion": "pantalon largo",
+            "categoria": "piernas",
+            "tiposDeTelaPosibles": [ "jean", "poliester" ],
+            "nivelDeAbrigo": 17,
+            "capa": 1
+        },
+        {
+            "descripcion": "calzas",
+            "categoria": "piernas",
+            "tiposDeTelaPosibles": [ "poliester" ],
+            "nivelDeAbrigo": 35,
+            "capa": 0
+        },
+        {
+            "descripcion": "zapatos de tacon",
+            "categoria": "calzado",
+            "tiposDeTelaPosibles": [ "cuero", "gamuza" ],
+            "nivelDeAbrigo": 5,
+            "capa": 1
+        },
+        {
+            "descripcion": "zapatillas adidas",
+            "categoria": "calzado",
+            "tiposDeTelaPosibles": [ "cuero", "tela" ],
+            "nivelDeAbrigo": 18,
+            "capa": 1
+        },
+        {
+            "descripcion": "gafas",
+            "categoria": "accesorio",
+            "tiposDeTelaPosibles": [ "" ],
+            "nivelDeAbrigo": 1,
+            "capa": 0
+        }
+    ]
+}

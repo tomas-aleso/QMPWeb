@@ -1,0 +1,15 @@
+﻿{
+    "LocalObservationDateTime": "2019-07-02T10:35:00-03:00",
+    "EpochTime": 1562074500,
+    "WeatherText": "Mostly cloudy",
+    "WeatherIcon": 6,
+    "HasPrecipitation": false,
+    "PrecipitationType": null,
+    "IsDayTime": true,
+    "Temperature": {
+
+        "Value": 10,
+        "Unit": "C",
+        "UnitType": 17
+    }
+}

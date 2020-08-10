@@ -1,0 +1,43 @@
+﻿[
+    {
+        "place_id": "214446567",
+        "licence": "https:\/\/locationiq.com\/attribution",
+        "osm_type": "relation",
+        "osm_id": "1224652",
+        "boundingbox": [ "-34.705637", "-34.5265535", "-58.5314588", "-58.3351249" ],
+        "lat": "-34.6075682",
+        "lon": "-58.4370894",
+        "display_name": "Buenos Aires, Ciudad Aut\u00f3noma de Buenos Aires, Argentina",
+        "class": "place",
+        "type": "city",
+        "importance": 0.66879583938391,
+        "icon": "https:\/\/locationiq.org\/static\/images\/mapicons\/poi_place_city.p.20.png"
+    },
+    {
+        "place_id": "6424385",
+        "licence": "https:\/\/locationiq.com\/attribution",
+        "osm_type": "node",
+        "osm_id": "703184475",
+        "boundingbox": [ "6.4999662", "6.5199662", "-74.8624345", "-74.8424345" ],
+        "lat": "6.5099662",
+        "lon": "-74.8524345",
+        "display_name": "Buenosaires, Yolomb\u00f3, Nordeste, Antioquia, Colombia",
+        "class": "place",
+        "type": "locality",
+        "importance": 0.35,
+        "icon": "https:\/\/locationiq.org\/static\/images\/mapicons\/poi_place_village.p.20.png"
+    },
+    {
+        "place_id": "93078062",
+        "licence": "https:\/\/locationiq.com\/attribution",
+        "osm_type": "way",
+        "osm_id": "46595266",
+        "boundingbox": [ "-23.2041147", "-23.2038343", "-65.3488787", "-65.3488271" ],
+        "lat": "-23.2041147",
+        "lon": "-65.3488271",
+        "display_name": "BuenosAires, Santa B\u00e1rbara, Humahuaca, Municipio de Humahuaca, Departamento Humahuaca, Jujuy, Y4630, Argentina",
+        "class": "highway",
+        "type": "residential",
+        "importance": 0.21
+    }
+]

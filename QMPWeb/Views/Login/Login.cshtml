@@ -1,0 +1,162 @@
+﻿@model QueMePongo.Usuario;
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Login</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" crossorigin="anonymous">        
+        <link rel="stylesheet" href="/css/main.css">
+	</head>
+	<body>
+        
+        <header class="header content">
+            
+            <div class="header-video">
+                <video src="/media/clothing.mp4" muted autoplay loop></video>
+            </div>
+
+            <div class="header-overlay">
+                <div class="container-fluid" id="contenido">
+
+                    <!-- PARRAFO DE PRESENTACION -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+                            <h1 class="letra-con-sombra-blanca letra-de-titulo letra-50">¿Qué me pongo?</h1>
+                            <h3 class="letra-con-sombra-blanca letra-de-titulo mt-4">
+                                ¿Querés dejar de perder tiempo todos los dias pensando en qué te vas a poner? Nosotros somos tu solución!
+                            </h3>
+                        </div>
+                    </div>
+
+                    <!-- FORMULARIO LOGIN / CREACION DE CUENTA-->
+                    <div class="row" id="loginYdescripcion">                        
+                        <div class="col-lg-5 col-md-7 col-sm-12 mx-auto login">
+                            
+                            @{
+                                if(TempData["ErrorMessage"] != null){
+                                    <div class="alert alert-danger mb-3 text-center">
+                                        @TempData["ErrorMessage"]
+                                    </div>
+                                }
+                            }
+
+                            <!-- FORMULARIO DE LOGIN -->
+                            <div class="card" id="formLogin">
+                                <form asp-controller="Login" asp-action="login" method="POST">
+                                    <div class="card-header">
+                                        <h1 class="card-title text-center letra-con-sombra letra-blanca letra-de-titulo letra-50">
+                                            Bienvenido!
+                                        </h1>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                </div>
+                                                <input type="text" name="usuario" id="usuario" placeholder="Usuario" class="form-control">
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group mt-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                </div>
+                                                <input type="password" name="contrasenia" id="contrasenia" placeholder="Contraseña" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <input type="submit" value="Entrar" class="input btn btn-success btn-block letra-20 mb-2">
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- FORMULARIO DE CREACION DE CUENTA -->
+                            <div class="card" id="formCreacionCuenta">
+                                <form asp-action="Create" asp-controller="Usuario" method="POST">
+                                    <div class="card-header">
+                                        <h1 class="card-title text-center letra-con-sombra letra-blanca letra-de-titulo letra-50">Crear cuenta</h1>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group text-center">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" name="usuario" asp-for="usuario" id="usuario" placeholder="Nombre de Usuario" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                                </div>
+                                                <input type="password" class="form-control" name="contrasenia" id="contrasenia" asp-for="contrasenia" placeholder="Contraseña (mínimo 8 caracteres)" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="fas fa-at"></i></span>
+                                                </div>
+                                                <input type="mail" class="form-control" name="mail" id="mail" asp-for="mail" placeholder="mail@example.com">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <input type="submit" value="Crear cuenta" class="btn btn-success btn-block letra-20">
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- BOTONES PARA EL CAMBIO DE FORMULARIO -->
+                    <div class="col-lg-5 col-md-7 col-sm-12 mx-auto mt-4" id="loginBtns">
+                        <button class="btn btn-primary btn-block letra-20 letra-de-titulo" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Entrar con mi cuenta</button>
+                        <button class="btn btn-primary btn-block letra-20 letra-de-titulo" id="crearCuentaBtn"><i class="fas fa-user-plus"></i> Crear una cuenta</button>
+                    </div>
+    
+                </div>
+            </div>
+
+        </header>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#formCreacionCuenta').hide();
+                $('#loginBtn').hide();
+            })
+
+            $('#crearCuentaBtn').click(function(){
+                $('#formLogin').hide();
+                $('#crearCuentaBtn').hide();
+                $('#loginBtn').show();
+                $('#formCreacionCuenta').show();
+            })
+
+            $('#loginBtn').click(function(){
+                $('#formCreacionCuenta').hide();
+                $('#crearCuentaBtn').show();
+                $('#formLogin').show();
+                $('#loginBtn').hide();
+            })
+
+        </script>
+    </body>
+</html>

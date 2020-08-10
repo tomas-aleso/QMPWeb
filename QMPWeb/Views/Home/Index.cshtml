@@ -1,0 +1,74 @@
+﻿@using QueMePongo;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>¿QuéMePongo?</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" crossorigin="anonymous">        
+    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/main.css">
+</head>
+<body class="fondo-main">
+    <div class="index-overlay bg-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-3 mx-auto mt-5">
+                    <h1 class="text-center letra-de-titulo letra-con-sombra letra-blanca">Prendas</h1>
+                    <div class="card mt-4 mx-auto box-shadow" id="img-container">
+                        <div class="card-body">
+                            <a asp-controller="Prendas" asp-action="Index" asp-route-idUsuario="@ViewBag.Id">
+                                <img src="/media/ropa.png" alt="" class="image-fluid imagen-de-icono">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 mx-auto mt-5">
+                    <h1 class="text-center letra-de-titulo letra-con-sombra letra-blanca">Guardarropas</h1>
+                    <div class="card mt-4 mx-auto box-shadow" id="img-container">
+                        <div class="card-body">
+                            <a asp-controller="Guardarropas" asp-action="Index" asp-route-idUsuario="@ViewBag.Id">
+                                <img src="/media/guardarropa.png" alt="" class="image-fluid imagen-de-icono">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3 mx-auto mt-5">
+                    <h1 class="text-center letra-de-titulo letra-con-sombra letra-blanca">Eventos</h1>
+                    <div class="card mt-4 mx-auto box-shadow" id="img-container">
+                        <div class="card-body">
+                            <a asp-controller="Eventos" asp-action="Index" asp-route-idUsuario="@ViewBag.Id">
+                                <img src="/media/calendario.png" alt="" class="image-fluid imagen-de-icono">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center mt-5">
+                <h1 class="letra-con-sombra letra-de-titulo">
+                    @{
+
+                        if (ViewBag.Id != null)
+                        {
+                            <h1 class="letra-de-titulo letra-blanca letra-con-sombra">Bienvenido @ViewBag.NombreUsuario, cómo podemos vestirte hoy?</h1>
+                        }
+
+                    }
+                </h1>
+                <h3 class="letra-con-sombra letra-de-titulo">
+                </h3>          
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

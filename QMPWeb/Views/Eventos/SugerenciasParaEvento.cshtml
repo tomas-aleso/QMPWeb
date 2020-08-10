@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Sugerencias de evento";
+}
+
+<!-- PAGE CONTENT -->
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-12 alert alert-primary text-center mt-4">
+                <b>Sugerencias generadas para '@ViewBag.Evento.descripcion'</b>
+            </div>
+
+            @{
+                if (Enumerable.Count(ViewBag.Sugerencias) > 0)
+                {
+                    foreach (var sugerencia in ViewBag.Sugerencias)
+                    {
+                        <div class="col-sm-6 col-md-6 col-lg-4 mt-4">
+                            <div class="card box-shadow black-card">
+                                <div class="card-header">
+                                    <h3 class="letra-de-titulo">@sugerencia.id_atuendo</h3>
+                                </div>
+                                @foreach (var prenda in sugerencia.prendas)
+                                {
+                                    if (prenda.tipoPrenda > 60)
+                                    {
+                                        <p class="letra-de-titulo">@prenda.tipo.descripcion</p>
+                                        <img src="~/uploads/@prenda.urlImagen" alt="foto-de-prenda" width="50" height="50">
+                                    }
+                                }
+                                <div class="card-body mx-auto">
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+
+        </div>
+    </div>

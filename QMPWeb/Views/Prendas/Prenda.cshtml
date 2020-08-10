@@ -1,0 +1,78 @@
+@{
+    ViewData["Title"] = "Edicion de prenda";
+}
+
+<div class="container-fluid">
+    <div class="row mt-4">
+
+        <div class="col-md-8 col-sm-12 mx-auto mt-4 mb-4">
+            <form asp-controller="Prendas" asp-action="ActualizarPrenda" method="POST" enctype="multipart/form-data">
+                <input type="hidden" value="@ViewBag.Id" name="idUsuario">
+                <input type="hidden" value="@ViewBag.Prenda.id_prenda" name="idPrenda">
+                <div class="card bg-default box-shadow pb-0">
+                    <div class="card-header text-center">
+                        <h1 class="letra-de-titulo letra-blanca letra-con-sombra">Edición de prenda</h1>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Color principal</label>
+                                    <input type="text" class="form-control editable" name="colorPrincipal" value="@ViewBag.Prenda.colorPrincipal">
+                                </div>
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Color secundario</label>
+                                    <input type="text" class="form-control editable" name="colorSecundario" value="@ViewBag.Prenda.colorSecundario">
+                                </div>
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Imagen de la prenda</label>
+                                    <div class="form-group">
+                                        <img src="~/uploads/@ViewBag.Prenda.urlImagen" width="35%" height="35%">
+                                        <input type="hidden" name="imagenVieja" value="@ViewBag.Prenda.urlImagen">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Nueva imágen</label>
+                                    <input type="file" class="form-control" name="imagenNueva">
+                                </div>                
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Tipo de prenda actual</label>
+                                    <input type="text" class="form-control" name="tipoPrendaViejo" value="@ViewBag.TipoDePrenda.descripcion" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Tipo de prenda al que lo quieras cambiar</label>
+                                    <select name="tipoPrendaNuevo" id="tipoPrendaNuevo" class="custom-select">
+                                        <option value="-" selected>Nuevo tipo de prenda</option>
+                                        @foreach(var prenda in ViewBag.TiposDePrenda){
+                                            <option value="@prenda.id_tipoPrenda">@prenda.descripcion</option>
+                                        }
+                                    </select>
+                                </div>
+                                <hr>
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Tipo de tela actual</label>
+                                    <input type="text" class="form-control readonly" name="tipoTelaViejo" value="@ViewBag.TipoDeTelaDePrenda.descripcion" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label class="letra-de-titulo">Tipo de tela al que lo quieras cambiar</label>
+                                    <select name="tipoTelaNuevo" id="tipoTelaNuevo" class="custom-select">
+                                        <option value="-" selected>Nuevo tipo de tela</option>
+                                        @foreach(var tela in @ViewBag.Telas){
+                                            <option value="@tela.id_tela">@tela.descripcion</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success btn-block mt-4"><i class="far fa-save"></i> Guardar cambios</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
